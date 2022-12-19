@@ -10,14 +10,14 @@ environment {
       NEXUS_PASS = "admin123"
       RELEASE_REPO = "MVN-RELEASE"
       CENTRAL_REPO = "MVN-DOWNLOADS"
-      NEXUS-GRP_REPO = "MVN-GROUP"
+      NEXUS_GRP_REPO = "MVN-GROUP"
       NEXUSIP = "172.31.74.38"
       NEXUSPORT = "8081"
 }
  stages{
     stage("build"){
-        step{ 
-           sh "mvn -s settings.xml -DskipTest install" 
+        steps{ 
+           sh "mvn -s settings.xml -DskipTests install" 
         }
     }
  }
