@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools {
-      MAVEN "MAVEN_HOME"    
+      Maven "MAVEN_HOME"    
       JDK    "JAVA_HOME"
     }  
 environment {
