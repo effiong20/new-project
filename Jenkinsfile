@@ -1,9 +1,10 @@
 pipeline{
     agent any
-    tools 
-      maven "MAVEN_HOME"    
+    tools {
+      MAVEN "MAVEN_HOME"    
       JDK    "JAVA_HOME"
-environment 
+    }  
+environment {
       SNAP_REPO "MVN-SNAP"
       NEXUS_USER "admin"
       NEXUS_PASS "admin123"
@@ -12,7 +13,7 @@ environment
       NEXUS-GRP_REPO "MVN-GROUP"
       NEXUSIP "172.31.74.38"
       NEXUSPORT "8081"
-
+}
  stages{
     stage("build"){
         step{ 
