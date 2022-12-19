@@ -1,8 +1,8 @@
 pipeline{
     agent any
     tools {
-      Maven "MAVEN_HOME"    
-      JDK    "JAVA_HOME"
+      maven "MAVEN3"    
+      jdk   "JDK3"
     }  
 environment {
       SNAP_REPO "MVN-SNAP"
