@@ -18,10 +18,24 @@ stages{
     stage("build"){
         steps{ 
            sh "mvn -s settings.xml -DskipTests install" 
-        }
-        
+        }      
     }
-    
+    post {
+        always {
+            echo "Now Archiving"
+            archiveArtifacts artifacts: '*/**.war', onlyIfSuccessful: true
+        }
+      }    
+    stage("Test"){
+        steps{
+           sh "mvn -s settings.xml test"
+       }
+    }  
+    stage("Checkstyle qualitycode"){
+        steps{
+           sh "mvn -s settings.xml checkstyl:checkstyle"
+        }
+    }
   } 
 }
      
