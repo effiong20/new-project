@@ -15,7 +15,7 @@ environment {
       NEXUSPORT = "8081"
 }
 stages{
-    stage("build"){
+    stage("Build"){
         steps{ 
            sh "mvn -s settings.xml -DskipTests install" 
         }      
@@ -31,7 +31,7 @@ stages{
            sh "mvn -s settings.xml test"
        }
     }  
-    stage("Checkstyle qualitycode"){
+    stage("Checkstyle Qualitycode"){
         steps{
            sh "mvn -s settings.xml checkstyl:checkstyle"
         }
