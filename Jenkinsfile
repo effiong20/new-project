@@ -21,9 +21,9 @@ stages{
         }      
     
         post {
-           always {
+           success {
                echo "Now Archiving"
-               archiveArtifacts artifacts: '*/**.war', onlyIfSuccessful: true
+               archiveArtifacts artifacts: '*/**.war'
         }
         }
       }    
@@ -34,7 +34,7 @@ stages{
     }  
     stage("Checkstyle Qualitycode"){
         steps{
-           sh "mvn -s settings.xml checkstyl:checkstyle"
+           sh "mvn -s settings.xml Checkstyle:Checkstyle"
         }
     }
   } 
