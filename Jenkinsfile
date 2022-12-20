@@ -19,11 +19,12 @@ stages{
         steps{ 
            sh "mvn -s settings.xml -DskipTests install" 
         }      
-    }
-    post {
-        always {
-            echo "Now Archiving"
-            archiveArtifacts artifacts: '*/**.war', onlyIfSuccessful: true
+    
+        post {
+           always {
+               echo "Now Archiving"
+               archiveArtifacts artifacts: '*/**.war', onlyIfSuccessful: true
+        }
         }
       }    
     stage("Test"){
