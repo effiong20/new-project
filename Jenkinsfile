@@ -34,7 +34,7 @@ stages{
     }  
     stage("Checkstyle Qualitycode"){
         steps{
-           sh "mvn -s settings.xml Checkstyle:Checkstyle"
+           sh "mvn -s settings.xml checkstyle:checkstyle"
         }
     }
   } 
