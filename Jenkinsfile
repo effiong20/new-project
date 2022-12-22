@@ -67,8 +67,8 @@ stages{
                 }
             }
         }
-    stage("Artifact Upload to nexus"){
-           steps{
+    stage("Artifact Upload to nexus") {
+           steps {
         nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
@@ -85,15 +85,15 @@ stages{
         ]
      )
     }
-   }
-     post{
-        always{
+    }  
+    post {
+      always {
             echo "Slack Notification"
             slacksend chennel: "#effiongchannel",
             color: "#439FE0",
-            message: "Build Started: job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"
+            message: "Build Started: job ${env.JOB_NAME} build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
         }
      }
+   }
  }
-}
 
