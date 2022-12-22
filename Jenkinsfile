@@ -91,7 +91,7 @@ stages{
             echo "Slack Notification"
             slacksend chennel: "#effiongchannel",
             color: "#439FE0",
-            message: "Build Started: job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"`
+            message: "Build Started: job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"
         }
      }
  }
