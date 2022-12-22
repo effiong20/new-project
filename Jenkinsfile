@@ -68,8 +68,8 @@ stages{
             }
         }
     stage("Artifact Upload to nexus"){
-    
-     nexusArtifactUploader(
+           steps{
+        nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
         nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
@@ -84,6 +84,7 @@ stages{
              type: 'war']
         ]
      )
+    }
    }
  }
 }
