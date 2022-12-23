@@ -86,7 +86,8 @@ stages{
      )
     }
     }  
-    post {
+    stage("slack-notify"){
+       post {
         always {
             echo  'Slack Notification.'
             slacksend chennel:  '#effiongchannel',
@@ -94,6 +95,7 @@ stages{
             message: "Build Started: job ${env.JOB_NAME} build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
         }
      }
+    }
    }
  }
 
