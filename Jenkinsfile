@@ -87,6 +87,7 @@ stages{
     }
     }  
     stage("slack-notify"){
+       steps{
        post {
         always {
             echo  'Slack Notification.'
@@ -97,5 +98,6 @@ stages{
      }
     }
    }
+}
  }
 
