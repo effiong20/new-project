@@ -99,7 +99,7 @@ stages{
     stage("push-image"){
         steps{
             script{
-                docker.withRegistry(vprofileRegistry  registryCredentials){
+                docker.withRegistry(vprofileRegistry , registryCredentials){
                     dockerimage.push("$BUILD_NUMBER")
                     dockerimage.push("latest")
                 }
