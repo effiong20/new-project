@@ -86,18 +86,7 @@ stages{
      )
     }
     }  
-    stage("slack-notify"){
-       steps{
-       post {
-        always {
-            echo  'Slack Notification.'
-            slacksend chennel:  '#effiongchannel',
-            color: "#439FE0",
-            message: "Build Started: job ${env.JOB_NAME} build ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)" 
-        }
-     }
-    }
-   }
+    
 }
  }
 
