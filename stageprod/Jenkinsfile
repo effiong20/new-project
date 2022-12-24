@@ -92,7 +92,7 @@ stages{
     stage("build-image"){
         steps{
             script{
-                dockerimage=docker.build ( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/")
+                dockerimage=docker.build ( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/multistage/")
             }
         }
     }
