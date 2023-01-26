@@ -16,7 +16,9 @@ environment {
       NEXUS_LOGIN = "nexus-key"
       SONARSERVER = "sonarserver"
       SONARSCANNER = "sonarscanner"
-
+      registryCredentials = "ecr:us-east-1:awscred"
+      appRegistry = "887592648157.dkr.ecr.us-east-1.amazonaws.com/vprofilejob"
+      vprofileRegistry = "https://887592648157.dkr.ecr.us-east-1.amazonaws.com"
 }
 stages{
     stage("Build"){
@@ -86,7 +88,22 @@ stages{
      )
     }
     }  
-    
+    stage("build-image"){
+        steps{
+            script{
+                dockerimage=docker.build ( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/Dockerfile")
+            }
+        }
+    }
+    stage("push-image"){
+        steps{
+            script{
+                docker.withRegistry(vprofileRegistry  registryCredentials){
+                    dockerimage.push("$BUILD_NUMBER")
+                    dockerimage.push("latest")
+                }
+            }
+        }
+    }
 }
  }
-
