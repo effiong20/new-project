@@ -64,7 +64,7 @@ stages{
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
+                    
                     waitForQualityGate abortPipeline: true
                 }
             }
@@ -88,17 +88,18 @@ stages{
      )
     }
     }  
+     
     stage("build-image"){
         steps{
             script{
-                dockerimage=docker.build ( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/Dockerfile")
+                dockerimage=docker.build ( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/multistage/")
             }
         }
     }
     stage("push-image"){
         steps{
             script{
-                docker.withRegistry(vprofileRegistry  registryCredentials){
+                docker.withRegistry(vprofileRegistry , registryCredentials){
                     dockerimage.push("$BUILD_NUMBER")
                     dockerimage.push("latest")
                 }
@@ -106,5 +107,5 @@ stages{
         }
     }
 }
- }
+}
 
