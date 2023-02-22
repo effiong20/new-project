@@ -1,18 +1,18 @@
-pipeline{
+Pipeline{
     agent any
     tools{
        maven "mvn" 
        jdk    "java" 
     }
-     options {timeout(time: 1, unit: 'HOURS') }
+     options{timeout(time: 1, unit: 'HOURS') }
      environment{
-      SNAP_REPO=
+      SNAP_REPO="snap-hosted"
       NEXUS_USER= "admin"
       NEXUS_PASS= "admin123"
-      RELEASE_REPO=
-      CENTRAL_REPO=
-      NEXUS_GRP_REPO=
-      NEXUSIP=
+      RELEASE_REPO="proxy-maven"
+      CENTRAL_REPO="maven-hosted"
+      NEXUS_GRP_REPO="group-maven"
+      NEXUSIP= 172.31.24.201
       NEXUSPORT= 8081
   }
   stages{
