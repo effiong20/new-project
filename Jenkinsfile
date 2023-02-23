@@ -16,7 +16,13 @@ Pipeline{
       NEXUSPORT= 8081
   }
   stages{
-      stage("building stage"){
+      stage("src code pull from git"){
+        steps{
+          git branch: 'mybranch',
+          url: 'https://github.com/effiong20/new-project.git' 
+        }
+     }
+       stage("building stage"){
          steps{
             sh: "mvn clean install -DskipTest -s settings.xml"
         }
