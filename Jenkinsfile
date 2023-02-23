@@ -18,7 +18,7 @@ Pipeline{
   stages{
       stage("building stage"){
          steps{
-            sh script: "mvn clean install -DskipTest"
+            sh script: "mvn clean install -DskipTest -s settings.xml"
         }
       }
       stage("archivethe artifact"){
