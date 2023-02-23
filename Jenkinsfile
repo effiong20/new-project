@@ -18,8 +18,7 @@ Pipeline{
   stages{
      stage("src code pull from git"){
         steps{
-          git branch: 'mybranch',
-          url: 'https://github.com/effiong20/new-project.git' 
+          url: 'https://github.com/effiong20/new-project.git', branch: "mybranch",
         }
      }
       stage("building stage"){
