@@ -12,7 +12,7 @@ Pipeline{
       RELEASE_REPO="proxy-maven"
       CENTRAL_REPO="maven-hosted"
       NEXUS_GRP_REPO="group-maven"
-      NEXUSIP= 172.31.24.201
+      NEXUSIP= "172.31.24.201"
       NEXUSPORT= 8081
   }
   stages{
