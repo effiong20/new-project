@@ -1,8 +1,8 @@
 Pipeline{
     agent any
     tools{
-       maven "mvn" 
-       jdk    "java" 
+       maven "MVN8" 
+       jdk    "JDK8" 
     }
      options{timeout(time: 1, unit: 'HOURS') }
      environment{
@@ -18,7 +18,7 @@ Pipeline{
   stages{
       stage("building stage"){
          steps{
-            sh script: "mvn clean install -DskipTest -s settings.xml"
+            sh: "mvn clean install -DskipTest -s settings.xml"
         }
       }
       stage("archivethe artifact"){
