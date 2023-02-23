@@ -18,7 +18,7 @@ Pipeline{
   stages{
      stage("src code pull from git"){
         steps{
-          git branch: 'ci-jenkins',
+          git branch: 'mybranch',
           url: 'https://github.com/effiong20/new-project.git' 
         }
      }
