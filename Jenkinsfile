@@ -26,12 +26,7 @@ Pipeline{
          steps{
             sh: "mvn clean install -DskipTest -s settings.xml"
         }
-      }
-      stage("archivethe artifact"){
-        steps{
-          archiveArtifacts artifacts: '**/*.war'
-        }
-      }      
+      }    
       stage("junit report"){
         steps{
           junit testResults: "target/surefire-reports/*.xml"  
