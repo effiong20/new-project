@@ -22,11 +22,7 @@ pipeline{
             sh "mvn -s settings.xml -DskipTests install"
         }
       }
-      stage("junit report"){
-        steps{
-          junit testResults: "target/surefire-reports/*.xml"  
-        }
-      }      
+      
   }
 }
     
