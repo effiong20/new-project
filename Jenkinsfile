@@ -14,7 +14,7 @@ pipeline{
       NEXUS_GRP_REPO="group-maven"
       NEXUSIP= "172.31.24.201"
       NEXUSPORT= 8081
-      SONARSRVER="sonarsever"
+      SONARSERVER="sonarserver"
       SONARSCANNER="sonarscanner"
   }
   stages{
@@ -46,7 +46,7 @@ pipeline{
              scannerHome = tool "${SONARSCANNER}"
           }
        steps {
-            withSonarQubeEnv("${SONARSRVER}") {
+            withSonarQubeEnv("${SONARSERVER}") {
                sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                    -Dsonar.projectName=vprofile-repo \
                    -Dsonar.projectVersion=1.0 \
