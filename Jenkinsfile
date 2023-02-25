@@ -14,6 +14,7 @@ pipeline{
       NEXUS_GRP_REPO="group-maven"
       NEXUSIP= "172.31.24.201"
       NEXUSPORT= 8081
+      NEXUS_LOGIN= "nexus1"
       SONARSERVER="sonarserver"
       SONARSCANNER="sonarscanner"
   }
@@ -65,6 +66,23 @@ pipeline{
         }
       }
     }
-  }
+       stage("artifactupload"){
+        nexusArtifactUploader(
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
+        groupId: 'QA',
+        version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+        repository: '${CENTRAL_REPO}',
+        credentialsId: '${NEXUS_LOGIN}',
+        artifacts: [
+            [artifactId: "vproapp",
+             classifier: '',
+             file: 'target/vprofile-v2.war',
+             type: 'war']
+        ]
+     )
+       }  
+}
 }
     
