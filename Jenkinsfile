@@ -6,7 +6,7 @@ pipeline{
     }
      options{timeout(time: 1, unit: 'HOURS') }
      environment{
-      SNAP_REPO="snap-hosted"
+      SNAP_REPO="snap2"
       NEXUS_USER= "admin"
       NEXUS_PASS= "admin123"
       RELEASE_REPO="proxy-maven"
@@ -14,7 +14,7 @@ pipeline{
       NEXUS_GRP_REPO="group-maven"
       NEXUSIP= "172.31.24.201"
       NEXUSPORT= 8081
-      NEXUS_LOGIN= "nexus1"
+      NEXUS_LOGIN= "sample1"
       SONARSERVER="sonarserver"
       SONARSCANNER="sonarscanner"
   }
