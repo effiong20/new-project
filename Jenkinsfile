@@ -14,7 +14,7 @@ pipeline{
       NEXUS_GRP_REPO="grouprepo"
       NEXUSIP= "172.31.24.78"
       NEXUSPORT= "8081"
-      NEXUS_LOGIN= "sample1"
+      NEXUS_LOGIN= "admin"
       SONARSERVER="sonarserver"
       SONARSCANNER="sonarscanner"
   }
