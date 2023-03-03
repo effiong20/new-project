@@ -3,6 +3,7 @@ pipeline{
     tools{
        maven "maven" 
        jdk    "jdk11" 
+       nodejs "nodejs"
     }
      options{timeout(time: 1, unit: 'HOURS') }
      environment{
