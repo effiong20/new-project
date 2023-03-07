@@ -125,7 +125,7 @@ pipeline{
     agent any
     tools{
        maven "maven" 
-       jdk    "jdk11" 
+       jdk    "OracleJDK8" 
        nodejs "nodejs"
     }
      options{timeout(time: 1, unit: 'HOURS') }
