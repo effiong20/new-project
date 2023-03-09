@@ -196,7 +196,7 @@ pipeline{
         nexusVersion: 'nexus3',
         protocol: 'http',
         nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
-        groupId: 'QA',
+        groupId: 'NEXUS_GRP_REPO',
         version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
         repository: '${CENTRAL_REPO}',
         credentialsId: '${NEXUS_LOGIN}',
