@@ -8,7 +8,7 @@ Pipeline{
      environment{
       SNAP_REPO="snap-hosted"
       NEXUS_USER= "admin"
-      NEXUS_PASS= "admin123"
+      NEXUS_PASS= "" 
       RELEASE_REPO="proxy-maven"
       CENTRAL_REPO="maven-hosted"
       NEXUS_GRP_REPO="group-maven"
