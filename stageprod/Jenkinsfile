@@ -7,7 +7,7 @@ pipeline {
 environment {
       SNAP_REPO = "MVN-SNAP"
       NEXUS_USER = "admin"
-      NEXUS_PASS = "admin123"
+      NEXUS_PASS = ""
       RELEASE_REPO = "MVN-RELEASE"
       CENTRAL_REPO = "MVN-DOWNLOADS"
       NEXUS_GRP_REPO = "MVN-GROUP"
